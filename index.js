@@ -6,6 +6,8 @@
 //Built-in JS module for collecting data from the Users
 var readlineSync = require('readline-sync');
 var ansCheck;
+var userScore = 0;
+var flag = 0;
 
 //Welcome message
 console.log("Hello, Hope you are doing well!");
@@ -29,9 +31,11 @@ console.log(welcomeMessage);
     var userAnswer = readlineSync.question('Where did I study my Engineering?');
 
   if(userAnswer === 'EPCET' || userAnswer === 'East Point' || userAnswer === 'East Point College of Engineering and Technology') {
+    flag = 1;
     ansCheck = 'YOU ARE CORRECT! :D';
   }
   else {
+    flag = 0;
     ansCheck = 'I THOUGHT WE WERE BEST FRIENDS :/';
   }
   }
@@ -39,6 +43,14 @@ console.log(welcomeMessage);
     console.log("Looks like you're too busy for me :(");
   }
 
+/**
+ * To increment or decrement user score
+ */
+if (flag == 1) {
+  userScore++;
+} else {
+  userScore--;
+}
 
-
+console.log("You score is: " + userScore);
 
